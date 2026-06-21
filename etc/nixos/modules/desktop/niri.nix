@@ -1,0 +1,51 @@
+{ config, pkgs, ... }:
+
+{	
+	programs.niri.enable = true;
+
+	services.displayManager.gdm.enable = true;
+	
+	services.displayManager.defaultSession = "niri";
+	
+	security.polkit.enable = true;
+	services.gnome.gnome-keyring.enable = true;
+
+	xdg.portal = {
+		enable = true;
+		extraPortals = with pkgs; [
+			xdg-desktop-portal-gtk
+			xdg-desktop-portal-gnome
+		];
+
+	    config.niri = {
+	    	"org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+	    };
+	};
+
+	environment.sessionVariables = {
+		NIXOS_OZONE_WL = "1";
+	};
+
+	environment.systemPackages = with pkgs; [
+		niri
+		alacritty
+		fuzzel
+		waybar
+		mako
+
+		swaylock
+		swayidle
+
+		wl-clipboard
+		grim
+		slurp
+		swappy
+
+		brightnessctl
+		playerctl
+		pamixer
+		pavucontrol
+
+		xwayland-satellite
+	];
+}
