@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
-{	
+{
 	programs.niri.enable = true;
 
 	services.displayManager.gdm.enable = true;
@@ -26,9 +26,13 @@
 		NIXOS_OZONE_WL = "1";
 	};
 
+	services.power-profiles-daemon.enable = true;
+	services.upower.enable = true;
+
 	environment.systemPackages = with pkgs; [
 		niri
-		alacritty
+		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+		
 		fuzzel
 		waybar
 		mako
@@ -47,5 +51,10 @@
 		pavucontrol
 
 		xwayland-satellite
+
+		papirus-icon-theme
+		adwaita-icon-theme
+		bibata-cursors
+		nwg-look
 	];
 }

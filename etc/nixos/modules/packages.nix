@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-	nixpkgs.config.allowUnfree = true;
-
 	environment.systemPackages = with pkgs; [
 		micro
 		git
@@ -26,6 +24,8 @@
 		yazi
 		helix
 
+		gparted
+
 		flatpak
 		nautilus
 		firefox
@@ -33,6 +33,12 @@
 		thunderbird
 	];
 
+	services.flatpak = {
+		enable = true;
+	};
+	
+	nixpkgs.config.allowUnfree = true;
+	
 	programs.firefox.enable = true;
 	programs.fish.enable = true;
 }
