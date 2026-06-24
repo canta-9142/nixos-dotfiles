@@ -8,6 +8,10 @@
 			url = "github:noctalia-dev/noctalia";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		nix-flatpak = {
+			url = "github:gmodena/nix-flatpak/main";
+		};
 	};
 
 	nixConfig = {
@@ -20,7 +24,7 @@
 		];
 	};
 
-	outputs = inputs@{ self, nixpkgs, noctalia, ... }:
+	outputs = inputs@{ self, nixpkgs, noctalia, nix-flatpak, ... }:
 		let
 			system = "x86_64-linux";
 			hostname = "nixos";
@@ -34,6 +38,7 @@
 
 				modules = [
 					./configuration.nix
+					nix-flatpak.nixosModules.nix-flatpak
 				];
 			};
 		};
