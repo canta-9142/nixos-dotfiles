@@ -14,6 +14,7 @@
       ./modules/networking.nix
       ./modules/audio.nix
       ./modules/desktop/niri.nix
+      ./modules/desktop/stylix.nix
       ./modules/desktop/input-method.nix
       ./modules/desktop/fonts.nix
     ];
