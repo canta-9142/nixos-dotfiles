@@ -22,6 +22,10 @@
 			url = "github:nix-community/stylix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		ghostty = {
+			url = "github:ghostty-org/ghostty";
+		};
 	};
 
 	nixConfig = {
@@ -34,7 +38,7 @@
 		];
 	};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, noctalia, stylix, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, noctalia, stylix, ghostty, ... }:
 		let
 			system = "x86_64-linux";
 			hostname = "nixos";
@@ -51,13 +55,19 @@
 
 					nix-flatpak.nixosModules.nix-flatpak
 					
-					stylix.nixos-Modules.stylix
+					stylix.nixosModules.stylix
 
+					({ pkgs, ... }: {
+						environment.systemPackages = [
+							ghostty.packages.${pkgs.system}.default
+						];
+					})
 					
 					home-manager.nixosModules.home-manager
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
+						home-manager.backupFileExtension = "hm-backup";
 						home-manager.users.jinji = import ./home.nix;
 					}
 				];

@@ -5,8 +5,7 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
       ./hardware-configuration.nix
       ./modules/bootloader.nix
       ./modules/packages.nix

@@ -22,10 +22,15 @@
 
 		ookla-speedtest
 
-		ghostty
 		zellij
 		yazi
 		helix
+
+		gcc
+		go
+		nodejs
+		pnpm
+		python314
 
 		parted
 		gparted

@@ -3,11 +3,11 @@
 {
 	stylix = {
 		enable = true;
-		image = ../assets/wallpaper.jpg;
+		image = ../../assets/wallpaper.jpg;
 
 		polarity = "dark";
 
-		base16Scheme = "${pkgs.base16-schemes}/share/themes/cappuccin-mocha.yaml";
+		base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
 		fonts = {
 			serif = {
@@ -16,11 +16,11 @@
 			};
 			sansSerif = {
 				package = pkgs.noto-fonts-cjk-sans;
-				name = "Noto Sans CJK JP"
+				name = "Noto Sans CJK JP";
 			};
 			monospace = {
 				package = pkgs.cascadia-code;
-				name = "Cascadia Code NF"
+				name = "Cascadia Code NF";
 			};
 			emoji = {
 				package = pkgs.noto-fonts-color-emoji;
