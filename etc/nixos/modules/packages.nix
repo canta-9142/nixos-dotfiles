@@ -11,6 +11,7 @@
 		unzip
 		btop
 		htop
+		bottom
 		fish
 		fastfetch
 		ripgrep
@@ -19,11 +20,14 @@
 		bat
 		tree
 
+		ookla-speedtest
+
 		ghostty
 		zellij
 		yazi
 		helix
 
+		parted
 		gparted
 
 		remmina
@@ -34,8 +38,14 @@
 		nautilus
 		firefox
 		google-chrome
+		discord
+		slack
 		vscode
+		zed
 		thunderbird
+		kicad
+		inkscape
+		obs-studio
 	];
 
 	services.flatpak = {
@@ -48,9 +58,6 @@
 		}];
 		packages = [
 			"io.github.shiftey.Desktop"
-			"com.discordapp.Discord"
-			"org.kicad.Kicad"
-			"com.obsproject.Studio"
 		];
 	};
 	
