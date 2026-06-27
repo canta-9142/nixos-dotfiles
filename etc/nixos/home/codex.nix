@@ -1,14 +1,14 @@
 { config, pkgs, ... }:
 
 {
-	systemd.jinji.services.codex-remote = {
+	systemd.user.services.codex-remote = {
 		Unit = {
 			Description = "Codex CLI Remote Control Daemon";
 			After = [ "network.target" ];
 		};
 		Service = {
 			ExecStart = "${pkgs.codex}/bin/codex remote-control start";
-			Restart = "always";
+			Restart = "never";
 		};
 		Install = {
 			WantedBy = [ "default.target" ];

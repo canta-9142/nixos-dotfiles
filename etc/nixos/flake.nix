@@ -4,14 +4,15 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-		home-manager = {
-			url = "github:nix-community/home-manager";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		home-manager.url = "github:nix-community/home-manager";
+		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 		
-		nix-flatpak = {
-			url = "github:gmodena/nix-flatpak/main";
-		};
+		nix-flatpak.url = "github:gmodena/nix-flatpak/main";
+
+		niri.url = "github:sodiboo/niri-flake";
+
+		nirimod.url = "github:srinivasr/nirimod";
+		nirimod.inputs.nixpkgs.follows = "nixpkgs";
 
 		noctalia = {
 			url = "github:noctalia-dev/noctalia";
@@ -26,6 +27,19 @@
 		ghostty = {
 			url = "github:ghostty-org/ghostty";
 		};
+
+		codex-cli = {
+			url = "github:sadjow/codex-cli-nix";
+		};
+
+		zen-browzer = {
+			url = "github:youwen5/zen-browser-flake";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		helix = {
+			url = "github:helix-editor/helix";
+		};
 	};
 
 	nixConfig = {
@@ -38,28 +52,41 @@
 		];
 	};
 
-	outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, noctalia, stylix, ghostty, ... }:
+	outputs = inputs@{ self,
+					   nixpkgs,
+					   home-manager,
+					   nix-flatpak,
+					   niri,
+					   nirimod,
+					   noctalia,
+					   stylix,
+					   ghostty,
+					   codex-cli,
+					   helix, ... }:
 		let
 			system = "x86_64-linux";
 			hostname = "nixos";
+			pkgs = nixpkgs.legacyPackages.${system};
 		in {
 			nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
 				inherit system;
 
-				specialArgs = {
-					inherit inputs;
-				};
+				specialArgs = { inherit inputs; };
 
 				modules = [
 					./configuration.nix
 
 					nix-flatpak.nixosModules.nix-flatpak
+
+					niri.nixosModules.niri
 					
 					stylix.nixosModules.stylix
 
 					({ pkgs, ... }: {
 						environment.systemPackages = [
 							ghostty.packages.${pkgs.system}.default
+							codex-cli.packages.${pkgs.system}.default
+							helix.packages.${pkgs.system}.default
 						];
 					})
 					
@@ -67,10 +94,25 @@
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.backupFileExtension = "hm-backup";
 						home-manager.users.jinji = import ./home.nix;
+						home-manager.extraSpecialArgs = { inherit inputs; };
 					}
 				];
+			};
+
+			devShells.${system}.default = pkgs.mkShell {
+				buildInputs = with pkgs; [
+					zed-editor
+
+					gcc
+					go
+					nodejs
+					pnpm
+					python314
+				];
+				shellHook = ''
+					echo ""
+				'';
 			};
 		};
 }

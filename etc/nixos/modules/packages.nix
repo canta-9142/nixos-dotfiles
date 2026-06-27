@@ -22,25 +22,19 @@
 
 		ookla-speedtest
 
+		kitty
 		zellij
 		yazi
-		helix
-
-		gcc
-		go
-		nodejs
-		pnpm
-		python314
-
+		
 		parted
 		gparted
 
 		remmina
 		freerdp
-		codex
 
 		flatpak
 		nautilus
+		chromium
 		firefox
 		google-chrome
 		discord

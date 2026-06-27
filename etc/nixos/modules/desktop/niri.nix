@@ -3,6 +3,11 @@
 {
 	programs.niri.enable = true;
 
+	nix.settings = {
+		substituters = [ "https://cachix.org" ];
+		trusted-public-keys = [ "niri.cachix.org-1:Wv0Om60A7RKg0Z3JAoHDf/6+e6t96gGZ6mVNfCgSgEA=" ];
+	};
+
 	services.displayManager.gdm.enable = true;
 	services.displayManager.defaultSession = "niri";
 	
@@ -29,8 +34,8 @@
 	services.upower.enable = true;
 
 	environment.systemPackages = with pkgs; [
-		niri
 		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+		inputs.nirimod.packages.${pkgs.system}.default
 		
 		fuzzel
 		waybar
