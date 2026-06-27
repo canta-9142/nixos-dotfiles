@@ -1,6 +1,10 @@
 { config, pkgs, inputs, ... }:
 
 {
+	imports = [
+		./niri-settings.nix
+	];
+	
 	programs.niri.enable = true;
 
 	nix.settings = {
