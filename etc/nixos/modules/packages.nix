@@ -27,6 +27,7 @@
 		go
 		nodejs
 		pnpm
+		mermaid-cli
 		python314
 		arduino-ide
 
