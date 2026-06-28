@@ -9,37 +9,23 @@
 		
 		nix-flatpak.url = "github:gmodena/nix-flatpak/main";
 
-		niri.url = "github:sodiboo/niri-flake";
-
 		nirimod.url = "github:srinivasr/nirimod";
 		nirimod.inputs.nixpkgs.follows = "nixpkgs";
 
-		noctalia = {
-			url = "github:noctalia-dev/noctalia";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		noctalia.url = "github:noctalia-dev/noctalia";
+		noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
-		stylix = {
-			url = "github:nix-community/stylix";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		stylix.url = "github:nix-community/stylix";
+		stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-		ghostty = {
-			url = "github:ghostty-org/ghostty";
-		};
+		ghostty.url = "github:ghostty-org/ghostty";
 
-		codex-cli = {
-			url = "github:sadjow/codex-cli-nix";
-		};
+		codex-cli.url = "github:sadjow/codex-cli-nix";
 
-		zen-browzer = {
-			url = "github:youwen5/zen-browser-flake";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		zen-browzer.url = "github:youwen5/zen-browser-flake";
+		zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
-		helix = {
-			url = "github:helix-editor/helix";
-		};
+		helix.url = "github:helix-editor/helix";
 	};
 
 	nixConfig = {
@@ -56,7 +42,6 @@
 					   nixpkgs,
 					   home-manager,
 					   nix-flatpak,
-					   niri,
 					   nirimod,
 					   noctalia,
 					   stylix,
@@ -77,8 +62,6 @@
 					./configuration.nix
 
 					nix-flatpak.nixosModules.nix-flatpak
-
-					niri.nixosModules.niri
 					
 					stylix.nixosModules.stylix
 
@@ -95,7 +78,6 @@
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
 						home-manager.users.jinji = import ./home.nix;
-						home-manager.extraSpecialArgs = { inherit inputs; };
 					}
 				];
 			};

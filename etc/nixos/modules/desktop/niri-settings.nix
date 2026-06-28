@@ -1,8 +1,7 @@
-{ pkgs, inputs, ... }:
+{ ... }:
 
 {
 	imports = [
-		inputs.niri.homeModules.niri
 		./niri-noctalia.nix
 		./niri-binds.nix
 	];
