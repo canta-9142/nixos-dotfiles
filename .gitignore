@@ -1,0 +1,16 @@
+# secrets
+**/*secret*
+**/*token*
+**/*password*
+**/*.key
+**/*.pem
+
+# local caches
+.cache/
+.local/share
+.local/state/
+
+# editor junk
+.DS_Store
+*~
+*.swp

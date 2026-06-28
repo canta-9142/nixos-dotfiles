@@ -19,21 +19,25 @@
 		eza
 		bat
 		tree
-
-		ookla-speedtest
-
 		kitty
 		zellij
 		yazi
-		
-		parted
-		gparted
+
+		gcc
+		go
+		nodejs
+		pnpm
+		python314
+		arduino-ide
+
+		ookla-speedtest
 
 		remmina
 		freerdp
 
 		flatpak
 		nautilus
+		zathura
 		chromium
 		firefox
 		google-chrome

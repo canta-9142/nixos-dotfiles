@@ -22,9 +22,6 @@
 
 		codex-cli.url = "github:sadjow/codex-cli-nix";
 
-		zen-browzer.url = "github:youwen5/zen-browser-flake";
-		zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-
 		helix.url = "github:helix-editor/helix";
 	};
 
@@ -80,21 +77,6 @@
 						home-manager.users.jinji = import ./home.nix;
 					}
 				];
-			};
-
-			devShells.${system}.default = pkgs.mkShell {
-				buildInputs = with pkgs; [
-					zed-editor
-
-					gcc
-					go
-					nodejs
-					pnpm
-					python314
-				];
-				shellHook = ''
-					echo ""
-				'';
 			};
 		};
 }
