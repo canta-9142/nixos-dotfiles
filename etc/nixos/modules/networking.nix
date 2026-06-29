@@ -11,8 +11,10 @@
 	services.openssh.enable = true;
 
 	networking.firewall = {
-		enable = false;
+		enable = true;
+		allowPing = false;
+		checkReversePath = "loose";
 		allowedTCPPorts = [  ];
-		allowedUDPPorts = [  ];
+		allowedUDPPorts = [ 51820 ];
 	};
 }

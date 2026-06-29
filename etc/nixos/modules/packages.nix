@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+	
+	nixpkgs.config.allowUnfree = true;
+	
+	programs.firefox.enable = true;
+	programs.fish.enable = true;
+	
 	environment.systemPackages = with pkgs; [
 		micro
 		git
@@ -32,7 +38,10 @@
 		arduino-ide
 
 		ookla-speedtest
-
+		
+		wireguard-tools
+		wireguard-ui
+		tcpdump
 		remmina
 		freerdp
 
@@ -62,11 +71,7 @@
 		}];
 		packages = [
 			"io.github.shiftey.Desktop"
+			"org.gitfourchette.gitfourchette"
 		];
 	};
-	
-	nixpkgs.config.allowUnfree = true;
-	
-	programs.firefox.enable = true;
-	programs.fish.enable = true;
 }
