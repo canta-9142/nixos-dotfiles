@@ -26,6 +26,26 @@
   	"nix-command" "flakes"
   ];
 
+  security.sudo.extraRules = [
+  	{
+  		users = [ "jinji" ];
+  		commands = [
+  			{
+	  			command = "/run/current-system/sw/bin/wg-quick up wg0";
+	  			options = [ "NOPASSWD" ];
+  			}
+  			{
+  				command = "/run/current-system/sw/bin/wg-quick down wg0";
+  				options = [ "NOPASSWD" ];
+  			}
+  			{
+  				command = "/run/current-system/sw/bin/wg";
+  				options = [ "NOPASSWD" ];
+  			}
+  		];
+  	}
+  ];
+
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
 

@@ -39,9 +39,10 @@
 
 		ookla-speedtest
 		
+		netcat
+		tcpdump
 		wireguard-tools
 		wireguard-ui
-		tcpdump
 		remmina
 		freerdp
 
