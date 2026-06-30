@@ -10,6 +10,7 @@
 	environment.systemPackages = with pkgs; [
 		micro
 		git
+		meld
 		gh
 		wget
 		curl
@@ -30,12 +31,13 @@
 		yazi
 
 		gcc
+		arduino-ide
+		python314
 		go
 		nodejs
 		pnpm
+		tailwindcss
 		mermaid-cli
-		python314
-		arduino-ide
 
 		ookla-speedtest
 		
