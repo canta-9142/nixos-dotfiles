@@ -9,6 +9,9 @@
 		
 		nix-flatpak.url = "github:gmodena/nix-flatpak/main";
 
+		niri.url = "github:sodiboo/niri-flake";
+		niri.inputs.nixpkgs.follows = "nixpkgs";
+
 		nirimod.url = "github:srinivasr/nirimod";
 		nirimod.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -18,9 +21,16 @@
 		stylix.url = "github:nix-community/stylix";
 		stylix.inputs.nixpkgs.follows = "nixpkgs";
 
+		vicinae.url = "github:vicinaehq/vicinae";
+		vicinae.inputs.nixpkgs.follows = "nixpkgs";
+
 		ghostty.url = "github:ghostty-org/ghostty";
 
+		zen-browser.url = "github:0xc000022070/zen-browser-flake";
+		zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
 		codex-cli.url = "github:sadjow/codex-cli-nix";
+		codex-cli.inputs.nixpkgs.follows = "nixpkgs";
 
 		helix.url = "github:helix-editor/helix";
 	};
@@ -39,10 +49,13 @@
 					   nixpkgs,
 					   home-manager,
 					   nix-flatpak,
+					   niri,
 					   nirimod,
 					   noctalia,
 					   stylix,
+					   vicinae,
 					   ghostty,
+					   zen-browser,
 					   codex-cli,
 					   helix, ... }:
 		let
@@ -59,6 +72,8 @@
 					./configuration.nix
 
 					nix-flatpak.nixosModules.nix-flatpak
+
+					niri.nixosModules.niri
 					
 					stylix.nixosModules.stylix
 

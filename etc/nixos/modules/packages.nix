@@ -36,6 +36,7 @@
 		go
 		nodejs
 		pnpm
+		typescript
 		tailwindcss
 		mermaid-cli
 

@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 
-{	
+{
 	programs.niri.enable = true;
 
 	services.displayManager.gdm.enable = true;
@@ -29,7 +29,6 @@
 	services.upower.enable = true;
 
 	environment.systemPackages = with pkgs; [
-		niri
 		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 		inputs.nirimod.packages.${pkgs.system}.default
 		

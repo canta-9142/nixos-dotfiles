@@ -3,6 +3,7 @@
 {
 	imports = [
 		./home/codex.nix
+		#./home/niri.nix
 	];
 
 	home.username = "jinji";

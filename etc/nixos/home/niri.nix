@@ -7,6 +7,8 @@
 		./niri-binds.nix
 	];
 
+	programs.niri.package = inputs.niri.packages.${pkgs.system}.niri;
+
 	programs.niri.settings = {
 		input = {
 			keyboard.xkb = {
