@@ -26,23 +26,25 @@
   	"nix-command" "flakes"
   ];
 
+  services.udisks2.enable = true;
+
   security.sudo.extraRules = [
   	{
-  		users = [ "jinji" ];
-  		commands = [
-  			{
-	  			command = "/run/current-system/sw/bin/wg-quick up wg0";
-	  			options = [ "NOPASSWD" ];
-  			}
-  			{
-  				command = "/run/current-system/sw/bin/wg-quick down wg0";
-  				options = [ "NOPASSWD" ];
-  			}
-  			{
-  				command = "/run/current-system/sw/bin/wg";
-  				options = [ "NOPASSWD" ];
-  			}
-  		];
+  	  users = [ "jinji" ];
+  	  commands = [
+  	    {
+	  	  command = "/run/current-system/sw/bin/wg-quick up wg0";
+	  	  options = [ "NOPASSWD" ];
+  		}
+  		{
+  		  command = "/run/current-system/sw/bin/wg-quick down wg0";
+  		  options = [ "NOPASSWD" ];
+  		}
+  		{
+  		  command = "/run/current-system/sw/bin/wg";
+  		  options = [ "NOPASSWD" ];
+  		}
+  	  ];
   	}
   ];
 

@@ -20,6 +20,7 @@
 		htop
 		bottom
 		fish
+		macchina
 		fastfetch
 		ripgrep
 		fd
@@ -49,8 +50,15 @@
 		remmina
 		freerdp
 
+		pcmanfm
+		kdePackages.dolphin
+		kdePackages.kio-extras
+		kdePackages.kio-fuse
+		gnome-icon-theme
+		ark
+		file-roller
+
 		flatpak
-		nautilus
 		zathura
 		chromium
 		firefox
