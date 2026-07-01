@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-	home.Packages = [ pkgs.ghostty ];
+	home.packages = [ pkgs.ghostty ];
 
 	programs.ghostty = {
 		enable = true;

@@ -20,8 +20,8 @@
 		htop
 		bottom
 		fish
-		macchina
 		fastfetch
+		pfetch-rs
 		ripgrep
 		fd
 		eza
