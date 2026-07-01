@@ -1,13 +1,12 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
 	imports = [
-		inputs.niri.homeModules.niri
-		./niri-noctalia.nix
+		#./niri-noctalia.nix
 		./niri-binds.nix
 	];
 
-	programs.niri.package = inputs.niri.packages.${pkgs.system}.niri;
+	#programs.niri.package = inputs.niri.packages.${pkgs.system}.niri;
 
 	programs.niri.settings = {
 		input = {
@@ -29,10 +28,9 @@
 				mode = { width = 1920; height = 1080; refresh = 48.001; };
 				scale = 1.0;
 				position = { x = 1920; y = 0; };
-				is-primary = true;
 			};
 			"HDMI-A-1" = {
-				mode = { width = 1920; height = 1080; refresh = 60; };
+				mode = { width = 1920; height = 1080; refresh = 50.000; };
 				scale = 1.0;
 				position = { x = 0; y = 0; };
 			};
@@ -41,15 +39,14 @@
 		layout = {
 			gaps = 10;
 			
-			center-focused-column = "always";
+			center-focused-column = "never";
+
+			default-column-width = { proportion = 0.5; };
 			preset-column-widths = [
-				{ propotion = 0.33333; }
-				{ propotion = 0.5; }
-				{ propotion = 0.66667; }
+				{ proportion = 1.0 / 3.0; }
+				{ proportion = 1.0 / 2.0; }
+				{ proportion = 2.0 / 3.0; }
 			];
-			default-column-width = {
-				propotion = 0.5;
-			};
 		};
 
 		spawn-at-startup = [
@@ -65,9 +62,14 @@
 		animations = {
 		};
 
-		window-rule = [
+		window-rules = [
 			{
-				geometry-corener-radius = 15;
+				geometry-corner-radius = {
+					top-left = 12.0;
+					top-right = 12.0;
+					bottom-left = 12.0;
+					bottom-right = 12.0;
+				};
 				clip-to-geometry = true;
 			}
 		];

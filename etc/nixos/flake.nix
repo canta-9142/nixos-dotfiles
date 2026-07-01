@@ -25,6 +25,7 @@
 		vicinae.inputs.nixpkgs.follows = "nixpkgs";
 
 		ghostty.url = "github:ghostty-org/ghostty";
+		ghostty.inputs.nixpkgs.follows = "nixpkgs";
 
 		zen-browser.url = "github:0xc000022070/zen-browser-flake";
 		zen-browser.inputs.nixpkgs.follows = "nixpkgs";
@@ -33,6 +34,7 @@
 		codex-cli.inputs.nixpkgs.follows = "nixpkgs";
 
 		helix.url = "github:helix-editor/helix";
+		helix.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
 	nixConfig = {
@@ -79,7 +81,9 @@
 
 					({ pkgs, ... }: {
 						environment.systemPackages = [
+							vicinae.packages.${pkgs.system}.default
 							ghostty.packages.${pkgs.system}.default
+							zen-browser.packages.${pkgs.system}.default
 							codex-cli.packages.${pkgs.system}.default
 							helix.packages.${pkgs.system}.default
 						];

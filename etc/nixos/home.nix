@@ -3,7 +3,7 @@
 {
 	imports = [
 		./home/codex.nix
-		#./home/niri.nix
+		./home/niri.nix
 	];
 
 	home.username = "jinji";
@@ -16,10 +16,7 @@
 	gtk.enable = true;
 	xdg.configFile."gtk-3.0/gtk.css".force = lib.mkForce true;
 	xdg.configFile."gtk-4.0/gtk.css".force = lib.mkForce true;
-	
+		
 	home.packages = with pkgs; [
-		wl-clipboard
-		grim
-		slurp
 	];
 }

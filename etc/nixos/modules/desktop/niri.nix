@@ -29,11 +29,11 @@
 	services.upower.enable = true;
 
 	environment.systemPackages = with pkgs; [
+		niri
 		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 		inputs.nirimod.packages.${pkgs.system}.default
 		
 		fuzzel
-		waybar
 		mako
 
 		swaylock
