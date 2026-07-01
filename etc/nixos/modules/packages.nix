@@ -51,6 +51,7 @@
 		freerdp
 
 		pcmanfm
+		thunar
 		kdePackages.dolphin
 		kdePackages.kio-extras
 		kdePackages.kio-fuse

@@ -4,6 +4,7 @@
 	imports = [
 		./home/codex.nix
 		./home/niri.nix
+		./home/ghostty.nix
 	];
 
 	home.username = "jinji";
