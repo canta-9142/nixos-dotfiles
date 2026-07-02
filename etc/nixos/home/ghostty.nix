@@ -9,8 +9,8 @@
 
 		settings = {
 			font-family = "Cascadia Code NF";
-			font-size = 13;
-			theme = "Everforest Dark Med";
+			font-size = 12;
+			theme = "Everforest Dark Hard";
 			cursor-style = "bar";
 			background-opacity = 0.85;
 			window-decoration = false;

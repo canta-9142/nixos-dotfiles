@@ -5,6 +5,7 @@
 		./home/codex.nix
 		./home/niri.nix
 		./home/ghostty.nix
+		./home/activitywatch.nix
 	];
 
 	home.username = "jinji";

@@ -41,6 +41,7 @@
 		tailwindcss
 		mermaid-cli
 
+		activitywatch
 		ookla-speedtest
 		
 		netcat
