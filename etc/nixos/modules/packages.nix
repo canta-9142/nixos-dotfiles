@@ -51,7 +51,7 @@
 		remmina
 		freerdp
 
-		pcmanfm
+		nautilus
 		thunar
 		kdePackages.dolphin
 		kdePackages.kio-extras
