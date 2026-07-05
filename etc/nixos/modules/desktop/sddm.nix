@@ -1,20 +1,34 @@
 { config, pkgs, ... }:
 
-{
+let
+    custom-sddm-astronaut = pkgs.sddm-astronaut.override {
+        themeConfig = {
+            Background = toString ../../assets/nix-catppuccin-latte.png;
+            Blur = 0.0;
+            ParticalBlur = true;
+            Font = "Noto Sans CJK JP";
+        };
+    };
+
+in {
 	services.displayManager.sddm = {
 		enable = true;
 		wayland.enable = true;
-		theme = "sddm-astronaut-theme";
 		extraPackages = with pkgs; [
-			libsForQt5.qt5.qtgraficaleffects
+			custom-sddm-astronaut
+			kdePackages.qtmultimedia
 		];
+
+		theme = "sddm-astronaut-theme";
+		settings = {
+			Theme = {
+				Current = "sddm-astronaut-theme";
+			};
+		};
 	};
 
 	environment.systemPackages = with pkgs; [
-		(pkgs.callPackage (pkgs.fetchFromGitHub {
-			owner = "Keyitdev";
-			repo = "sddm-astronaut-theme";
-			sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-		}) {})
+		custom-sddm-astronaut
+		kdePackages.qtmultimedia
 	];
 }
