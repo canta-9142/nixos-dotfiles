@@ -57,6 +57,8 @@
 		"Mod+V".action."toggle-window-floating" = [ ];
 		"Mod+Shift+V".action."switch-focus-between-floating-and-tiling" = [ ];
 
+		"Print".action."screenshot" = [ ];
+
 		"Mod+Escape" = { allow-inhibiting = true; action."toggle-keyboard-shortcuts-inhibit" = [ ]; };
 
 		"Mod+Shift+E".action."quit" = [ ];

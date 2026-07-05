@@ -33,6 +33,7 @@
 
 		gcc
 		arduino-ide
+		rpi-imager
 		python314
 		go
 		nodejs
@@ -40,6 +41,8 @@
 		typescript
 		tailwindcss
 		mermaid-cli
+		playwright
+		playwright-driver.browsers
 
 		activitywatch
 		ookla-speedtest

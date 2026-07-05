@@ -8,7 +8,13 @@
 	hardware.bluetooth.enable = true;
 	services.blueman.enable = true;
 
-	services.openssh.enable = true;
+	services.openssh = {
+		enable = true;
+		settings = {
+			PermitRootLogin = "prohibit-password";
+			PasswordAuthentication = false;
+		};
+	};
 
 	networking.firewall = {
 		enable = true;

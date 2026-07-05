@@ -2,12 +2,16 @@
 	description = "NixOS with NNN, Stylix";
 
 	inputs = {
+		flake-utils.url = "github:numtide/flake-utils";
+		
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
 		home-manager.url = "github:nix-community/home-manager";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 		
 		nix-flatpak.url = "github:gmodena/nix-flatpak/main";
+
+		playwright.url = "github:pietdevries94/playwright-web-flake";
 
 		niri.url = "github:sodiboo/niri-flake";
 		niri.inputs.nixpkgs.follows = "nixpkgs";
@@ -48,9 +52,11 @@
 	};
 
 	outputs = inputs@{ self,
+					   flake-utils,
 					   nixpkgs,
 					   home-manager,
 					   nix-flatpak,
+					   playwright,
 					   niri,
 					   nirimod,
 					   noctalia,
@@ -64,6 +70,8 @@
 			system = "x86_64-linux";
 			hostname = "nixos";
 			pkgs = nixpkgs.legacyPackages.${system};
+			overlay = final: prev: { inherit (playwright.packages.${system}) playwright-test playwright-driver; };
+			pkgs2 = import nixpkgs { inherit system; overlays = [ overlay ]; };
 		in {
 			nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
 				inherit system;
@@ -74,9 +82,7 @@
 					./configuration.nix
 
 					nix-flatpak.nixosModules.nix-flatpak
-
 					niri.nixosModules.niri
-					
 					stylix.nixosModules.stylix
 
 					({ pkgs, ... }: {
@@ -96,6 +102,15 @@
 						home-manager.users.jinji = import ./home.nix;
 					}
 				];
+			};
+			devShell = {
+				default = pkgs2.mkShell {
+					packages = [ pkgs2.playwright-test ];
+					shellHool = ''
+						export PLAYWRIGHT_SKIP_BROUSER_DOWNLOAD=1
+						export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
+					'';
+				};
 			};
 		};
 }

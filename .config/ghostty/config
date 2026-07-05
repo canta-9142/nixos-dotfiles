@@ -1,1 +1,11 @@
-/nix/store/h0dkjnhnxzsa9im80axj87022s83wqqp-home-manager-files/.config/ghostty/config
+background-opacity = 1.000000
+background-opacity = 0.850000
+cursor-style = bar
+font-family = Cascadia Code NF
+font-family = Noto Color Emoji
+font-family = Cascadia Code NF
+font-size = 12
+font-size = 12
+theme = noctalia
+theme = noctalia
+window-decoration = false

@@ -1,13 +1,14 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
+	imports = [
+		./sddm.nix
+	];
+	
 	programs.niri.enable = true;
 
 	nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 	programs.niri.package = pkgs.niri-unstable;
-
-	services.displayManager.gdm.enable = true;
-	services.displayManager.defaultSession = "niri";
 	
 	security.polkit.enable = true;
 	services.gnome.gnome-keyring.enable = true;
