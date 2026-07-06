@@ -9,6 +9,7 @@
 	
 	environment.systemPackages = with pkgs; [
 		micro
+		fresh-editor
 		git
 		meld
 		gh

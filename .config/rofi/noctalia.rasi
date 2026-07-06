@@ -2,8 +2,8 @@
   bg: #131313;
   bg-alt: #1f1f1f;
   fg: #e2e2e2;
-  accent: #ffb599;
-  accent-fg: #5a1c00;
+  accent: #4dd9e5;
+  accent-fg: #00363b;
   border: #919191;
 }
 

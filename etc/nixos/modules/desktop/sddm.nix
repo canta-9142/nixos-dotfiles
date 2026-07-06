@@ -4,7 +4,7 @@ let
     custom-sddm-astronaut = pkgs.sddm-astronaut.override {
         themeConfig = {
             Background = toString ../../assets/nix-catppuccin-latte.png;
-            Blur = 0.0;
+            Blur = 0.4;
             ParticalBlur = true;
             Font = "Noto Sans CJK JP";
         };
@@ -19,7 +19,7 @@ in {
 			kdePackages.qtmultimedia
 		];
 
-		theme = "sddm-astronaut-theme";
+		theme = "${custom-sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme";
 		settings = {
 			Theme = {
 				Current = "sddm-astronaut-theme";

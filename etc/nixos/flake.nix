@@ -25,9 +25,6 @@
 		stylix.url = "github:nix-community/stylix";
 		stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-		vicinae.url = "github:vicinaehq/vicinae";
-		vicinae.inputs.nixpkgs.follows = "nixpkgs";
-
 		ghostty.url = "github:ghostty-org/ghostty";
 		ghostty.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -61,7 +58,6 @@
 					   nirimod,
 					   noctalia,
 					   stylix,
-					   vicinae,
 					   ghostty,
 					   zen-browser,
 					   codex-cli,
@@ -87,7 +83,6 @@
 
 					({ pkgs, ... }: {
 						environment.systemPackages = [
-							vicinae.packages.${pkgs.system}.default
 							ghostty.packages.${pkgs.system}.default
 							zen-browser.packages.${pkgs.system}.default
 							codex-cli.packages.${pkgs.system}.default
