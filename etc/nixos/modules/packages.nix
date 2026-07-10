@@ -65,6 +65,8 @@
 		file-roller
 
 		flatpak
+		wine64
+		wineWow64Packages.wayland
 		zathura
 		chromium
 		firefox
@@ -75,6 +77,7 @@
 		zed
 		thunderbird
 		kicad
+		gimp
 		inkscape
 		obs-studio
 	];

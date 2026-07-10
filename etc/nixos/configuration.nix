@@ -22,6 +22,12 @@
   	"nix-command" "flakes"
   ];
 
+  nix.gc = {
+  	automatic = true;
+  	dates = "weekly";
+  	options = "--delete-older-than 7d";
+  };
+
   services.udisks2.enable = true;
 
   security.sudo.extraRules = [
