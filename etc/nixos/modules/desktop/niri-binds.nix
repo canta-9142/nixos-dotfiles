@@ -4,9 +4,10 @@
 	programs.niri.settings.binds = {
 		"Mod+Shift+Slash".action.how-hotkey-overlay = null;
 
-		"Mod+T"       = { hotkey-overlay.title = "Open a Terminal: ghostty"; action.spawn = [ "ghostty" ]; };
-		"Super+Space" = { hotkey-overlay.title = "Open a Launcher: fuzzel"; action.spawn-sh = [ "pkill fuzell || fuzzel" ]; };
-		"Super+Alt+L" = { hotkey-overlay.title = "Lock the Screen: swaylock"; action.spawn = [ "swaylock" ]; };
+		"Mod+T"       = { hotkey-overlay.title = "Open a Terminal: ghostty";    action.spawn    = [ "ghostty" ]; };
+		"Super+Space" = { hotkey-overlay.title = "Open a Launcher: fuzzel";     action.spawn-sh = [ "pkill fuzell || fuzzel" ]; };
+		"Super+Alt+L" = { hotkey-overlay.title = "Lock the Screen: swaylock";   action.spawn    = [ "swaylock" ]; };
+		"Mod+W"       = { hotkey-overlay.title = "Pick a Wallpaper: Skwd-wall"; action.spawn-sh = [ "skwd wall toggle" ]; };
 
 		"XF86AudioRaiseVolume"  = { allow-when-locked = true; action.spawn-sh = [ "wpctl set-volume @DEFALUT_AUDIO_SINK@ 0.1+ -l 1.0" ]; };
 		"XF86AudioLowerVolume"  = { allow-when-locked = true; action.spawn-sh = [ "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-" ]; };

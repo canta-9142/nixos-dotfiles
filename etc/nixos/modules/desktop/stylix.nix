@@ -3,6 +3,7 @@
 {
 	stylix = {
 		enable = true;
+		
 		image = ../../assets/wallpaper.jpg;
 
 		polarity = "dark";
@@ -32,6 +33,10 @@
 			package = pkgs.bibata-cursors;
 			name = "Bibata-Modern-Ice";
 			size = 24;
+		};
+
+		targets = {
+			gtk.enable = true;
 		};
 	};
 }

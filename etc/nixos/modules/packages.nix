@@ -8,6 +8,7 @@
 	programs.fish.enable = true;
 	
 	environment.systemPackages = with pkgs; [
+		nh
 		micro
 		fresh-editor
 		git
@@ -24,6 +25,7 @@
 		fastfetch
 		pfetch-rs
 		ripgrep
+		bubblewrap
 		fd
 		eza
 		bat

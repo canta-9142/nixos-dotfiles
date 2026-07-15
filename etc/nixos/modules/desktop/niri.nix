@@ -6,6 +6,7 @@
 	];
 	
 	programs.niri.enable = true;
+	programs.skwd-wall.enable = true;
 
 	nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 	programs.niri.package = pkgs.niri-unstable;
@@ -54,6 +55,7 @@
 
 		xwayland-satellite
 
+		gowall
 		papirus-icon-theme
 		adwaita-icon-theme
 		bibata-cursors

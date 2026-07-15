@@ -11,6 +11,10 @@
 		
 		nix-flatpak.url = "github:gmodena/nix-flatpak/main";
 
+		nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
+
+		nclean.url = "github:p0nczek/nclean";
+
 		playwright.url = "github:pietdevries94/playwright-web-flake";
 
 		niri.url = "github:sodiboo/niri-flake";
@@ -21,6 +25,8 @@
 
 		stylix.url = "github:nix-community/stylix";
 		stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+		skwd-wall.url = "github:liixini/skwd-wall";
 
 		ghostty.url = "github:ghostty-org/ghostty";
 		ghostty.inputs.nixpkgs.follows = "nixpkgs";
@@ -50,10 +56,12 @@
 					   nixpkgs,
 					   home-manager,
 					   nix-flatpak,
+					   nclean,
 					   playwright,
 					   niri,
 					   noctalia,
 					   stylix,
+					   skwd-wall,
 					   ghostty,
 					   zen-browser,
 					   codex-cli,
@@ -77,9 +85,11 @@
 					nix-flatpak.nixosModules.nix-flatpak
 					niri.nixosModules.niri
 					stylix.nixosModules.stylix
+					skwd-wall.nixosModules.default
 
 					({ pkgs, ... }: {
 						environment.systemPackages = [
+							nclean.packages.${pkgs.system}.default
 							ghostty.packages.${pkgs.system}.default
 							zen-browser.packages.${pkgs.system}.default
 							codex-cli.packages.${pkgs.system}.default

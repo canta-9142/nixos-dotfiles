@@ -11,6 +11,8 @@
 	home.username = "jinji";
 	home.homeDirectory = "/home/jinji";
 
+	home.pointerCursor.enable = true;
+
 	home.stateVersion = "26.05";
 
 	programs.home-manager.enable = true;
