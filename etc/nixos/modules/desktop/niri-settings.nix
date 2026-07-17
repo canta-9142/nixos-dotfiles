@@ -52,6 +52,7 @@
 		spawn-at-startup = [
 			{ command = [ "noctalia" ]; }
 			{ command = [ "mako" ]; }
+			{ command = [ "swayidle" "-w" "before-sleep" "swaylock" "-f" "--screenshots" "--clock" "--indicator" "--indicator-radius" "100" "--effect-blur" "7x5" ]; }
 		];
 
 		hotkey-overlay = {

@@ -13,6 +13,7 @@
 	
 	security.polkit.enable = true;
 	services.gnome.gnome-keyring.enable = true;
+	security.pam.services.swaylock = {};
 
 	xdg.portal = {
 		enable = true;
@@ -32,6 +33,7 @@
 
 	services.power-profiles-daemon.enable = true;
 	services.upower.enable = true;
+	services.logind.settings.Login.HandleLidSwitch = "suspend";
 
 	environment.systemPackages = with pkgs; [
 		niri
@@ -40,7 +42,7 @@
 		fuzzel
 		mako
 
-		swaylock
+		swaylock-effects
 		swayidle
 
 		wl-clipboard
