@@ -12,4 +12,14 @@
 			];
 		};
 	};
+	services.xserver.desktopManager.runXdgAutostartIfNone = true;
+	systemd.user.services.fcitx5-restart-after-resume = {
+		description = "Restart Fcitx5 after suspend resume";
+		wantedBy = [ "suspend.target" "hibernate.target" ];
+		after = [ "suspend.target" "hibernate.target" ];
+		serviceConfig = {
+			Type = "oneshot";
+			ExecStart = "${pkgs.fcitx5}/bin/fcitx5-remote -r";
+		};
+	};
 }

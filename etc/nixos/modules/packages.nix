@@ -24,6 +24,7 @@
 		fish
 		fastfetch
 		pfetch-rs
+		fetch
 		ripgrep
 		bubblewrap
 		fd
@@ -67,6 +68,7 @@
 		file-roller
 
 		flatpak
+		flatpak-builder
 		wine64
 		wineWow64Packages.wayland
 		zathura
@@ -93,6 +95,7 @@
 			location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
 		}];
 		packages = [
+			"com.usebottles.bottles"
 			"io.github.shiftey.Desktop"
 			"org.gitfourchette.gitfourchette"
 		];
