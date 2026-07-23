@@ -39,6 +39,8 @@
 
 		helix.url = "github:helix-editor/helix";
 		helix.inputs.nixpkgs.follows = "nixpkgs";
+
+		concord.url = "github:chojs23/concord";
 	};
 
 	nixConfig = {
@@ -66,6 +68,7 @@
 					   zen-browser,
 					   codex-cli,
 					   helix,
+					   concord,
 					   ... }:
 		let
 			system = "x86_64-linux";
@@ -94,6 +97,7 @@
 							zen-browser.packages.${pkgs.system}.default
 							codex-cli.packages.${pkgs.system}.default
 							helix.packages.${pkgs.system}.default
+							concord.packages.${pkgs.system}.default
 						];
 					})
 					

@@ -57,6 +57,7 @@
 		wireguard-ui
 		remmina
 		freerdp
+		cloudflared
 
 		nautilus
 		thunar
@@ -84,6 +85,11 @@
 		gimp
 		inkscape
 		obs-studio
+		zoom-us
+		libreoffice
+		hunspell
+		hunspellDicts.en_US
+		pympress
 	];
 
 	services.flatpak = {
